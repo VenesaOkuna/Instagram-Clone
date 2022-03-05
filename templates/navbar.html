@@ -1,0 +1,36 @@
+<header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-white fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4 text-dark" href="/"> <i class="fa fa-instagram"></i> Instagram</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+          </div>
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+            {% if user.is_authenticated %}
+              <a class="nav-item nav-link pt-3" href="{% url 'post-create' %}">New Post</a>
+              <a class="nav-item nav-link pt-3 text-dark" href="/"><i class="fa nav-icons fa-home ml-3"></i></a>
+              <a class="nav-item nav-link pt-3 text-dark" href="#"><i class="fa nav-icons fa-paper-plane-o ml-3"></i></a>
+              <a class="nav-item nav-link pt-3 text-dark" href="#"><i class="fa nav-icons fa-bandcamp ml-3"></i></a>
+              <a class="nav-item nav-link pt-3 text-dark" href="#"><i class="fa nav-icons fa-heart-o ml-3"></i></a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle ml-2 pt-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img class="rounded-circle" width="30" height="30" src="{{ user.profile.image.url }}">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item text-dark" href="{% url 'profile' %}">Profile</a>
+                  <a class="dropdown-item text-dark" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </li>
+            {% else %}
+              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
