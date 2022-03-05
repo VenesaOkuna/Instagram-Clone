@@ -155,7 +155,13 @@ CLOUDINARY_URL = env('CLOUDINARY_URL')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #configure Django app for heroku
 
+
+
+# Login
+LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/users/login/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
