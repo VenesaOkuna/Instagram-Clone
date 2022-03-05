@@ -19,8 +19,13 @@ from django.conf.urls.static import static
 from . import settings
 
 urlpatterns = [
+    # Admin
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
+    # Users
+    path('users/', include(('users.urls', 'users'), namespace='users')),    
+    # Posts
+    path('', include(('posts.urls', 'posts'), namespace='posts')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
