@@ -9,7 +9,7 @@
     <div class="container mb-5" style="margin-top: 8em;">
         <div class="row">
             <div class="col-sm-4 d-flex justify-content-center">
-                <img src="{{ user.profile.picture.url }}" alt="@{{ user.username}}" class="rounded-circle" max-width="30%" height="150px" />
+                <img src="{{ user.profile.picture.url }}" alt="@{{ user.username}}" class="rounded-circle  account-img" max-width="30%" height="150px" />
             </div>
             <div class="col-sm-8">
                 <h2 style="font-weight: 100;">
@@ -21,6 +21,7 @@
                         >
                             Edit profile
                         </a>
+                        <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fa fa-cog" aria-hidden="true"></i></button>
                     {% else %}
                         <a
                             href=""
@@ -30,15 +31,15 @@
                         </a>
                     {% endif %}
                 </h2>
-                <div class="row mt-2" style="font-size: 1.2em">
-                    <div class="col-sm-4">
-                        <b>{{ user.profile.posts_count }}</b> posts
+                <div class="row mt-2 profile-stats" style="font-size: 1.2em">
+                    <div class="col-sm-4 profile-stat-count">
+                        <b>{{ user.profile.posts_count }}1</b> posts
                     </div>
-                    <div class="col-sm-4">
-                        <b>{{ user.profile.followers }}1,401</b> followers
+                    <div class="col-sm-4 profile-stat-count">
+                        <b>{{ user.profile.followers }}0</b> followers
                     </div>
-                    <div class="col-sm-4">
-                        <b>{{ user.profile.following }}491</b> following
+                    <div class="col-sm-4 profile-stat-count">
+                        <b>{{ user.profile.following }}0</b> following
                     </div>
                 </div>
                 <div class="row mt-4">
