@@ -35,7 +35,7 @@ Here is the Design
 
 
 ## View Live Site here
-View the complete site [here](mygalleriaapp.herokuapp.com/)
+View the complete site [here](instaclan.herokuapp.com/)
 
 
 ## Technologies Used
@@ -71,9 +71,9 @@ Install dependancies that will create an environment for the app to run `pip3 in
 Create .env file and paste paste the following filling where appropriate:
 
     SECRET_KEY = '<Secret_key>'
-    DBNAME = 'instaclan'
-    USER = '<Username>'
-    PASSWORD = '<password>'
+    DB_NAME = 'instaclan'
+    USER_NAME = '<Username>'
+    DB_PASSWORD = '<password>'
     DEBUG = True
 
 #### Run initial Migration
