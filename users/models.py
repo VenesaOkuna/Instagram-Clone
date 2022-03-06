@@ -13,10 +13,13 @@ class Profile(models.Model):
 
     Proxy Model that extends the base data with other information.
     """
-    # Relation con la tabla user
+    
+    # Relationship with the user table
+    
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    # Campos extendidos
+    # extended fields
+
     website = models.URLField(max_length=200, blank=True)
     biography = models.TextField(blank=True)
     phone_number = models.CharField(max_length=20, blank=True)
@@ -31,7 +34,12 @@ class Profile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
+    likes = models.ManyToManyField(User, related_name='blogpost_like')
+
 
     def __str__(self):
         """Return username"""
         return self.user.username
+
+    def number_of_likes(self):
+        return self.likes.count()
