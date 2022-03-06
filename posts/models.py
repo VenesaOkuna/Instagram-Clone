@@ -4,6 +4,7 @@
 from django.db import models
 #from django.contrib.auth.models import User
 from users.models import Profile
+from cloudinary.models import CloudinaryField
 
 
 class Post(models.Model):
@@ -11,12 +12,17 @@ class Post(models.Model):
 
     # user = models.ForeignKey(User, on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-
     title = models.CharField(max_length=255)
-    photo = models.ImageField(upload_to='posts/photos')
-
+    photo = CloudinaryField('image')
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
+    @property
+    def get_photo_url(self):
+        if self.photo and hasattr(self.photo, 'url'):
+            return self.photo.url
+        else:
+            return "/static/img/default-profile.jpg"
 
     def __str__(self):
         """Return title and username"""

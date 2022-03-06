@@ -3,7 +3,7 @@
 # Django
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib import admin
-from cloudinary.models import CloudinaryField
+
 
 # models
 from django.contrib.auth.models import User
